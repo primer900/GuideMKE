@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
 
 ## How to use this template
@@ -24,3 +25,7 @@ $ ionic cordova run ios
 
 Substitute ios for android if not on a Mac.
 
+=======
+# GuideMKE
+This is a Android app built using the Ionic Cordova framework. Its purpose is to provide a way to learn a new mobile development framework.
+>>>>>>> eea41debb46915ab93e2cb12d5555e7cfc4ae663
