@@ -15,9 +15,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SitePage {
   item: any;
+  imageUrl: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
       this.item = navParams.get('item');
+      this.imageUrl = this.item.image;
   }
 
   ionViewDidLoad() {
