@@ -15,5 +15,8 @@
 
 <ion-content padding>
   <div *ngIf="item">This is the {{item.title}} page</div>
-  <img src="{{imageUrl}}">
+  <div text-center="center">
+    <img src="{{imageUrl}}" width="700" height="432">
+  </div>
+  <p>For more information, go to their <a href="{{infoUrl}}">website</a>.</p>
 </ion-content>
