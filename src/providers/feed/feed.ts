@@ -38,7 +38,6 @@ export class FeedProvider {
 
   public getSavedFeeds(){
     return this.storage.get('savedFeeds').then(data => {
-      let objFromString = JSON.parse(data);
       if(data !== null && data !== undefined) {
         return JSON.parse(data);
       }
@@ -51,6 +50,27 @@ export class FeedProvider {
   public addFeed(newFeed: Feed){
     return this.getSavedFeeds().then(arrayOfFeeds => {
       arrayOfFeeds.push(newFeed);
+      let jsonString = JSON.stringify(arrayOfFeeds);
+      return this.storage.set('savedFeeds', jsonString);
+    })
+  }
+
+  public findWithAttr(array, attr, value) {
+    for(let i = 0; i < array.length; i += 1) {
+      if(array[i][attr] === value.title) {
+        return i;
+      }
+    }
+    return -1;
+  }
+
+  public deleteFeed(title: string) {
+    if(title === undefined) {
+      console.log("Feed is undefined");
+    }
+    return this.getSavedFeeds().then(arrayOfFeeds => {
+      let index = this.findWithAttr(arrayOfFeeds, 'title', title);
+      arrayOfFeeds.splice(index, 1);
       let jsonString = JSON.stringify(arrayOfFeeds);
       return this.storage.set('savedFeeds', jsonString);
     })

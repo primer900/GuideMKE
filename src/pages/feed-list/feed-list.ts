@@ -26,7 +26,6 @@ export class FeedListPage {
 
   public openArticle(url: string) {
     this.iab.create(url, '_blank');
-    // window.open(url, '_blank');
   }
 
   loadArticles() {

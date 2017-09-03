@@ -58,6 +58,37 @@ export class NewsPage {
     prompt.present();
   }
 
+  public deleteFeed(oldFeed: Feed) {
+    let prompt = this.alertCtrl.create({
+      title: 'Delete this feed?',
+      inputs: [
+        {
+          name: 'title',
+          placeholder: 'Delete which feed?'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel'
+        },
+        {
+          text: 'Delete',
+          handler: data => {
+            if(data === undefined)
+              console.log("title is undefined in news.ts");
+            this.feedProvider.deleteFeed(data).then(
+              res => {
+                this.loadFeeds();
+              }
+            );
+          }
+        }
+      ]
+    });
+    prompt.present();
+  }
+
   private loadFeeds() {
     this.feedProvider.getSavedFeeds().then(
       allFeeds => {
@@ -66,6 +97,9 @@ export class NewsPage {
   }
 
   public openFeed(feed: Feed) {
+    if(feed === undefined) {
+      console.log("feed is undefined");
+    }
     this.navCtrl.push('FeedListPage', { 'selectedFeed': feed });
   }
 

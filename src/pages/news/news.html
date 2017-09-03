@@ -18,14 +18,21 @@
 
 <ion-content padding>
   <ion-list>
-    <button menuClose ion-item *ngFor="let feed of feeds" (click)="openFeed(feed)">
-      {{feed.title}}
-    </button>
+    <ion-item-sliding *ngFor="let feed of feeds" >
+      <button menuClose ion-item (click)="openFeed(feed)">
+        {{feed.title}}
+      </button>
+      <ion-item-options side="right">
+        <button ion-button>Delete</button>
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
+
   <ion-list>
     <button ion-button full (click)="addFeed()" action secondary>
       <ion-icon name="add"></ion-icon> Add Feed
     </button>
+    <button ion-button full (click)="deleteFeed()">Delete a Feed</button>
   </ion-list>
 </ion-content>
 <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
