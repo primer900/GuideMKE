@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Storage } from '@ionic/storage';
-import { Observable } from 'rxjs/Observable';
 /*
   Generated class for the FeedProvider provider.
 
