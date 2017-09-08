@@ -9,7 +9,9 @@ import {SitePage} from "../site/site";
 export class ListPage {
   selectedItem: any;
   icons: string[];
-  items: Array<{title: string, icon: string, image: string, infoUrl: string}>;
+  longitudes: number[];
+  latitudes: number[];
+  items: Array<{title: string, icon: string, image: string, infoUrl: string, longitude: number, latitude: number}>;
   names: string[];
   images: string[];
   infoUrl: string[];
@@ -39,6 +41,21 @@ export class ListPage {
                     'https://mam.org/',
                     'http://milwaukee.brewers.mlb.com/mil/ballpark/',
                     'https://www.therave.com/main.asp'];
+    this.longitudes = [
+      -87.9172,
+      -87.9065,
+      -87.897438,
+      -87.9713,
+      -87.9429
+    ];
+    this.latitudes = [
+      43.0436,
+      43.0389,
+      43.0401,
+      43.0282,
+      43.0381
+    ];
+
 
     this.items = [];
     for (let i = 0; i < 5; i++) {
@@ -46,7 +63,9 @@ export class ListPage {
         title: this.names[i],
         icon: this.icons[i],
         image: this.images[i],
-        infoUrl: this.infoUrl[i]
+        infoUrl: this.infoUrl[i],
+        longitude: this.longitudes[i],
+        latitude: this.latitudes[i]
       });
     }
   }
